@@ -8,13 +8,12 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
   ImageBackground,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function RequestFavor() {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -28,15 +27,22 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
-                Requesting a Favor
+                Type request below:
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
-                Completing a Favor
+                Add location below:
+            </Text>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>
+                Any price applicable:
             </Text>
             </TouchableOpacity>
           </View>
@@ -59,7 +65,7 @@ export default function HomeScreen() {
   );
 }
 
-HomeScreen.navigationOptions = {
+RequestFavor.navigationOptions = {
   header: null,
 };
 
@@ -73,13 +79,13 @@ function DevelopmentModeNotice() {
 
     return (
       <Text style={styles.developmentModeText}>
-        What are you here for today?
+        Request a Favor
       </Text>
     );
   } else {
     return (
       <Text style={styles.developmentModeText}>
-        What are you here for today?
+        Request a Favor
       </Text>
     );
   }
@@ -92,11 +98,9 @@ function handleLearnMorePress() {
 }
 
 function handleHelpPress() {
-
-  return <Button
-    title="Requesting a Favor"
-    onPress={() => this.props.navigation.navigate('Request')}
-  />
+  WebBrowser.openBrowserAsync(
+    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
+  );
 }
 
 const styles = StyleSheet.create({
@@ -107,6 +111,8 @@ const styles = StyleSheet.create({
   developmentModeText: {
     position: 'relative',
     width: 300,
+    fontFamily: 'Didact Gothic',
+    lineHeight: 24,
     fontSize: 18,
     backgroundColor: 'rgba(204, 240, 248, 0.3)',
     height: 57,

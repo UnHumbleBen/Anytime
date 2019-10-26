@@ -6,6 +6,9 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import RequestFavor from '../screens/RequestFavor';
+import CompleteFavor from '../screens/CompleteFavor';
+import PreviewFavor from '../screens/PreviewFavor';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -15,6 +18,9 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Request: RequestFavor,
+    Complete: CompleteFavor,
+    Preview: PreviewFavor
   },
   config
 );

@@ -8,13 +8,12 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
   ImageBackground,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function CompleteFavor() {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -28,13 +27,13 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Requesting a Favor
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Completing a Favor
             </Text>
@@ -59,7 +58,7 @@ export default function HomeScreen() {
   );
 }
 
-HomeScreen.navigationOptions = {
+CompleteFavor.navigationOptions = {
   header: null,
 };
 
@@ -92,11 +91,9 @@ function handleLearnMorePress() {
 }
 
 function handleHelpPress() {
-
-  return <Button
-    title="Requesting a Favor"
-    onPress={() => this.props.navigation.navigate('Request')}
-  />
+  WebBrowser.openBrowserAsync(
+    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
+  );
 }
 
 const styles = StyleSheet.create({
