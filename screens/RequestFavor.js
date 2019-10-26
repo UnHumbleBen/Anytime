@@ -27,7 +27,7 @@ export default function RequestFavor(props) {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Type request below:
             </Text>
