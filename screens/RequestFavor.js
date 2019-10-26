@@ -13,7 +13,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-function onChangeText() => {
+function onChangeText() {
   console.log('todo!');
 }
 
