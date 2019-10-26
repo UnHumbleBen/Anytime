@@ -27,7 +27,7 @@ export default function CompleteFavor(props) {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={props.navigation.navigate('Home')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Favors to be Completed / In Progress
             </Text>
