@@ -14,7 +14,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -28,13 +28,13 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Request')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Requesting a Favor
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Request')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Completing a Favor
             </Text>

@@ -13,7 +13,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-export default function RequestFavor() {
+export default function RequestFavor(props) {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -27,7 +27,7 @@ export default function RequestFavor() {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Type request below:
             </Text>
