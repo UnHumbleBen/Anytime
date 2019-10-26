@@ -34,7 +34,7 @@ export default function HomeScreen(props) {
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Completing a Favor
             </Text>

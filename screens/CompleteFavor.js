@@ -13,7 +13,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-export default function CompleteFavor() {
+export default function CompleteFavor(props) {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -27,15 +27,15 @@ export default function CompleteFavor() {
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
+            <TouchableOpacity onPress={props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
-                Requesting a Favor
+                Favors to be Completed / In Progress
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
-                Completing a Favor
+                Back to Home
             </Text>
             </TouchableOpacity>
           </View>
