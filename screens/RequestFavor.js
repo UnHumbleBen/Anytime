@@ -19,6 +19,7 @@ function onChangeText() {
 }
 
 export default function RequestFavor(props) {
+  const { value, onChangeText } = React.useState('Enter text');
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
