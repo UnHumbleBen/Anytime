@@ -13,6 +13,10 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
+function onChangeText() => {
+  console.log('todo!');
+}
+
 export default function RequestFavor(props) {
   return (
     <View style={styles.container}>
@@ -30,20 +34,35 @@ export default function RequestFavor(props) {
             <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Type request below:
-            </Text>
+              </Text>
+              <TextInput
+                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                onChangeText={text => onChangeText(text)}
+                value={value}
+              />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Add location below:
-            </Text>
+              </Text>
+              <TextInput
+                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                onChangeText={text => onChangeText(text)}
+                value={value}
+              />
             </TouchableOpacity>
 
 
             <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Any price applicable:
-            </Text>
+              </Text>
+              <TextInput
+                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                onChangeText={text => onChangeText(text)}
+                value={value}
+              />
             </TouchableOpacity>
           </View>
         </ScrollView>
