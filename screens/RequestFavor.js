@@ -14,9 +14,9 @@ import {
 
 import { MonoText } from '../components/StyledText';
 
-function onChangeText() {
-  console.log('todo!');
-}
+// function onChangeText() {
+//   console.log('todo!');
+// }
 
 export default function RequestFavor(props) {
   const { value, onChangeText } = React.useState('Enter text');
