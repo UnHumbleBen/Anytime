@@ -48,11 +48,11 @@ export default function RequestFavor(props) {
               <Text style={styles.helpLinkText}>
                 Add location below:
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                 onChangeText={text => onChangeText(text)}
                 value={value}
-              />
+              /> */}
             </TouchableOpacity>
 
 
@@ -60,11 +60,11 @@ export default function RequestFavor(props) {
               <Text style={styles.helpLinkText}>
                 Any price applicable:
               </Text>
-              <TextInput
+              {/* <TextInput
                 style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
                 onChangeText={text => onChangeText(text)}
                 value={value}
-              />
+              /> */}
             </TouchableOpacity>
           </View>
         </ScrollView>
