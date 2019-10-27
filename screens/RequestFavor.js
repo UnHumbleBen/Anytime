@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Button,
   ImageBackground,
 } from 'react-native';
 
@@ -41,7 +42,7 @@ export default function RequestFavor(props) {
                 Type request below:
               </Text>
               {<TextInput
-                style={{ top:60, left: 13, width: 300, height: 90, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{ top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText={text1 => onChangeText(text1)}
                 value={value}
               />}
@@ -50,7 +51,7 @@ export default function RequestFavor(props) {
                 Add location below:
               </Text>
               { <TextInput
-                style={{ top:60, left: 13, width: 300, height: 90, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{ top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText2={text2 => onChangeText2(text2)}
                 value2={value2}
               />}
@@ -66,7 +67,28 @@ export default function RequestFavor(props) {
             </TouchableOpacity>
 
           </View>
+
+            <View style={styles.submitButton} >
+              <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+
+            <Text style={styles.submittext}>
+                Submit
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+            <View style={styles.backHomeButton}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+
+            <Text style={styles.backhome}>
+                Back Home
+              </Text>
+    </TouchableOpacity>
+          </View>
+
+
         </ScrollView>
+
 
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>
@@ -114,7 +136,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 300,
     left: 36,
-    top: 30
+    top: 20
   },
   developmentModeText: {
     position: 'absolute',
@@ -126,9 +148,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#93b8bd',
     height: 57,
     left: 36,
-    top: 40,
+    top: 80,
     borderBottomColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 6,
+  },
+  submitButton: {
+    position: 'absolute',
+    backgroundColor: 'green',
+    height: 70,
+    width: 150,
+    top: 600,
+    fontColor: '#ffffff',
+    left: 65,
+  },
+  backhome: {
+    textColor: '#ffffff',
+    textAlign: 'center',
+    fontColor: '#ffffff',
+    top: 14,
+  },
+  submittext: {
+    textColor: '#ffffff',
+    fontColor: '#ffffff',
+    textAlign: 'center',
+    top: 14, 
+  },
+  backHomeButton: {
+    position: 'absolute',
+    backgroundColor: '#93b8bd',
+    width: 150,
+    height: 70,
+    top:600, 
+    left: 230,
+    fontColor: '#ffffff'
   },
   helpContainer: {
     marginTop: 100,
