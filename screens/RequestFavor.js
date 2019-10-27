@@ -19,7 +19,9 @@ import { MonoText } from '../components/StyledText';
 // }
 
 export default function RequestFavor(props) {
-  const [value, onChangeText] = React.useState('Enter text');
+  const [value, onChangeText] = React.useState('');
+  const [value2, onChangeText2] = React.useState('Enter location');
+  const [value3, onChangeText3] = React.useState('Enter price');
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -27,45 +29,42 @@ export default function RequestFavor(props) {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
 
+
           <View style={styles.getStartedContainer}>
             <DevelopmentModeNotice />
 
           </View>
 
           <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Complete')}>
               <Text style={styles.helpLinkText}>
                 Type request below:
               </Text>
-              <TextInput
-                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                onChangeText={text => onChangeText(text)}
+              {<TextInput
+                style={{ top:60, left: 13, width: 300, height: 90, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                onChangeText={text1 => onChangeText(text1)}
                 value={value}
-              />
-            </TouchableOpacity>
+              />}
 
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>
+              <Text style= {styles.helpLinkText}>
                 Add location below:
               </Text>
-              {/* <TextInput
-                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                onChangeText={text => onChangeText(text)}
-                value={value}
-              /> */}
-            </TouchableOpacity>
-
-
-            <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
+              { <TextInput
+                style={{ top:60, left: 13, width: 300, height: 90, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                onChangeText2={text2 => onChangeText2(text2)}
+                value2={value2}
+              />}
+     
               <Text style={styles.helpLinkText}>
                 Any price applicable:
               </Text>
-              {/* <TextInput
-                style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                onChangeText={text => onChangeText(text)}
-                value={value}
-              /> */}
+              { <TextInput
+                style={{ top:60, left: 13, width: 300, height: 90,  borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                onChangeText3={text3 => onChangeText3(text3)}
+                value3={value3}
+              /> }
             </TouchableOpacity>
+
           </View>
         </ScrollView>
 
@@ -92,11 +91,6 @@ RequestFavor.navigationOptions = {
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
 
     return (
       <Text style={styles.developmentModeText}>
@@ -111,109 +105,41 @@ function DevelopmentModeNotice() {
     );
   }
 }
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: '#fff',
   },
+  getStartedContainer: {
+    position: 'absolute',
+    width: 300,
+    left: 36,
+    top: 30
+  },
   developmentModeText: {
-    position: 'relative',
+    position: 'absolute',
     width: 300,
     fontFamily: 'Didact Gothic',
+    textAlign: 'center',
     lineHeight: 24,
     fontSize: 18,
-    backgroundColor: 'rgba(204, 240, 248, 0.3)',
+    backgroundColor: '#93b8bd',
     height: 57,
-    left: 37,
-    top: 29,
-    borderBottomColor: 'rgba(255, 255, 255, 1)'
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
+    left: 36,
+    top: 40,
+    borderBottomColor: 'rgba(255, 255, 255, 1)',
+    borderRadius: 6,
   },
   helpContainer: {
-    marginTop: 15,
+    marginTop: 100,
     alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
   },
   helpLinkText: {
     fontSize: 14,
-    color: '#2e78b7',
+    fontFamily: 'Didact Gothic',
+    color: '#000000',
+    textAlign: 'center',
+    left: 16,
+    top: 60,
   },
 });
