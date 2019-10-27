@@ -27,12 +27,15 @@ export default function HomeScreen(props) {
 
           </View>
 
-          <View style={styles.helpContainer}>
+          <View style={styles.helpContainer1}>
             <TouchableOpacity onPress={() => props.navigation.navigate('Request')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Requesting a Favor
             </Text>
             </TouchableOpacity>
+          </View>
+
+          <View style={styles.helpContainer2}>
 
             <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
@@ -65,9 +68,11 @@ HomeScreen.navigationOptions = {
 
 function DevelopmentModeNotice() {
   return (
-    <Text style={styles.developmentModeText}>
-      What are you here for today?
+    <View style={styles.topPrompt}>
+      <Text style={styles.developmentModeText}>
+        What are you here for today?
       </Text>
+    </View>
   );
 }
 
@@ -88,85 +93,53 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 300,
     fontSize: 18,
-    backgroundColor: 'rgba(204, 240, 248, 0.3)',
     height: 57,
     left: 37,
-    top: 29,
+    top: 23,
     borderBottomColor: 'rgba(255, 255, 255, 1)'
   },
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
+  helpContainer1: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
+    width: 300,
+    height: 288,
+    left: 59,
+    top: 138,
+    backgroundColor: '#b5e0e6',
+    borderColor: 'rgba(255, 255, 255, 1)',
   },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
+  helpContainer2: {
+    position: 'absolute',
+    width: 300,
+    height: 288,
+    left: 59,
+    top: 479,
+    backgroundColor: '#b5e0e6',
+    borderColor: 'rgba(255, 255, 255, 1)',
   },
   helpLink: {
     paddingVertical: 15,
   },
+  topPrompt: {
+    width: 300,
+    height: 57,
+    left: 7,
+    top: 29,
+    backgroundColor: '#93b8bd',
+  },
   helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+    fontSize: 24,
+    width: 201,
+    height: 31,
+    left: 51,
+    top: 116,
+    fontFamily: 'Didact Gothic',
+    color: '#000000',
   },
 });
