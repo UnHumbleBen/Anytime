@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import FlatListBasics from '../components/RequestTable';
 
 export default function CompleteFavor(props) {
   return (
@@ -32,6 +33,9 @@ export default function CompleteFavor(props) {
                 Favors to be Completed / In Progress
             </Text>
             </TouchableOpacity>
+
+            <FlatListBasics />
+            
 
             <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
