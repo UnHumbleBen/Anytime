@@ -64,30 +64,10 @@ HomeScreen.navigationOptions = {
 };
 
 function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
+  return (
+    <Text style={styles.developmentModeText}>
+      What are you here for today?
       </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        What are you here for today?
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        What are you here for today?
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
   );
 }
 
