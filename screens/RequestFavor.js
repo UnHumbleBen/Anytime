@@ -42,48 +42,60 @@ export default function RequestFavor(props) {
                 Type request below:
               </Text>
               {<TextInput
-                style={{ backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{ backgroundColor: '#ffffff', top: 60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText={text1 => onChangeText(text1)}
                 value={value}
               />}
 
-              <Text style= {styles.helpLinkText}>
+              <Text style={styles.helpLinkText}>
                 Add location below:
               </Text>
-              { <TextInput
-                style={{backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+              {<TextInput
+                style={{ backgroundColor: '#ffffff', top: 60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText2={text2 => onChangeText2(text2)}
                 value2={value2}
               />}
-     
+
               <Text style={styles.helpLinkText}>
                 Any price applicable:
               </Text>
-              { <TextInput
-                style={{backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 90,  borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+              {<TextInput
+                style={{ backgroundColor: '#ffffff', top: 60, left: 13, width: 300, height: 90, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText3={text3 => onChangeText3(text3)}
                 value3={value3}
-              /> }
+              />}
             </TouchableOpacity>
 
           </View>
 
-            <View style={styles.submitButton} >
-              <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+          <View style={styles.submitButton} >
+            <TouchableOpacity onPress={() => {
+              let activityEntry = {
+                name: value,
+                location: value2,
+                price: value3,
+                inProgress: false,
+              }
 
-            <Text style={styles.submittext}>
+              let callback = props.callback;
+              callback([...data, activityEntry]);
+
+              props.navigation.navigate('Home');
+            }}>
+
+              <Text style={styles.submittext}>
                 Submit
               </Text>
             </TouchableOpacity>
           </View>
 
-            <View style={styles.backHomeButton}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+          <View style={styles.backHomeButton}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
 
-            <Text style={styles.backhome}>
+              <Text style={styles.backhome}>
                 Back Home
               </Text>
-    </TouchableOpacity>
+            </TouchableOpacity>
           </View>
 
 
@@ -141,7 +153,6 @@ const styles = StyleSheet.create({
   developmentModeText: {
     position: 'absolute',
     width: 300,
-    fontFamily: 'Didact Gothic',
     textAlign: 'center',
     lineHeight: 24,
     fontSize: 18,
@@ -158,29 +169,29 @@ const styles = StyleSheet.create({
     height: 70,
     width: 150,
     top: 600,
-    fontColor: '#ffffff',
+    color: '#ffffff',
     left: 65,
   },
   backhome: {
     textAlign: 'center',
-    fontColor: '#ffffff',
+    color: '#ffffff',
     color: '#ffffff',
     top: 20,
   },
   submittext: {
-    fontColor: '#ffffff',
+    color: '#ffffff',
     color: '#ffffff',
     textAlign: 'center',
-    top: 20, 
+    top: 20,
   },
   backHomeButton: {
     position: 'absolute',
     backgroundColor: '#93b8bd',
     width: 150,
     height: 70,
-    top:600, 
+    top: 600,
     left: 230,
-    fontColor: '#ffffff'
+    color: '#ffffff'
   },
   helpContainer: {
     marginTop: 100,
@@ -188,7 +199,6 @@ const styles = StyleSheet.create({
   },
   helpLinkText: {
     fontSize: 14,
-    fontFamily: 'Didact Gothic',
     color: '#000000',
     textAlign: 'center',
     left: 16,

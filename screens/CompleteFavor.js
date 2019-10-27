@@ -12,8 +12,12 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
+import { RequestTable } from '../components/Table';
 
 export default function CompleteFavor(props) {
+
+  const listOfRequests = props.listOfRequests;
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -32,6 +36,8 @@ export default function CompleteFavor(props) {
                 Favors to be Completed / In Progress
             </Text>
             </TouchableOpacity>
+
+            <RequestTable data={listOfRequests} />
 
             <TouchableOpacity onPress={() => props.navigation.navigate('Home')} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>

@@ -15,6 +15,8 @@ import {
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen(props) {
+  const [listOfRequests, onChangeList] = React.useState({});
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/images/splashscreen.png')} style={{ width: '100%', height: '100%' }}>
@@ -28,16 +30,17 @@ export default function HomeScreen(props) {
           </View>
 
           <View style={styles.helpContainer1}>
-            <TouchableOpacity onPress={() => props.navigation.navigate('Request')} style={styles.helpLink}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Request', { callback: onChangeList, data: listOfRequests })} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Requesting a Favor
             </Text>
             </TouchableOpacity>
           </View>
 
-          <View style={styles.helpContainer2}>
 
-            <TouchableOpacity onPress={() => props.navigation.navigate('Complete')} style={styles.helpLink}>
+
+          <View style={styles.helpContainer2}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Complete', { listOfRequests: listOfRequests })} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>
                 Completing a Favor
             </Text>
@@ -139,7 +142,6 @@ const styles = StyleSheet.create({
     height: 31,
     left: 51,
     top: 116,
-    fontFamily: 'Didact Gothic',
     color: '#000000',
   },
 });
