@@ -42,7 +42,7 @@ export default function RequestFavor(props) {
                 Type request below:
               </Text>
               {<TextInput
-                style={{ top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{ backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText={text1 => onChangeText(text1)}
                 value={value}
               />}
@@ -51,7 +51,7 @@ export default function RequestFavor(props) {
                 Add location below:
               </Text>
               { <TextInput
-                style={{ top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 130, borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText2={text2 => onChangeText2(text2)}
                 value2={value2}
               />}
@@ -60,7 +60,7 @@ export default function RequestFavor(props) {
                 Any price applicable:
               </Text>
               { <TextInput
-                style={{ top:60, left: 13, width: 300, height: 90,  borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
+                style={{backgroundColor: '#ffffff', top:60, left: 13, width: 300, height: 90,  borderColor: 'gray', borderWidth: 1, paddingVertical: 15 }}
                 onChangeText3={text3 => onChangeText3(text3)}
                 value3={value3}
               /> }
@@ -162,16 +162,16 @@ const styles = StyleSheet.create({
     left: 65,
   },
   backhome: {
-    textColor: '#ffffff',
     textAlign: 'center',
     fontColor: '#ffffff',
-    top: 14,
+    color: '#ffffff',
+    top: 20,
   },
   submittext: {
-    textColor: '#ffffff',
     fontColor: '#ffffff',
+    color: '#ffffff',
     textAlign: 'center',
-    top: 14, 
+    top: 20, 
   },
   backHomeButton: {
     position: 'absolute',
